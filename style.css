@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+html{
+  height: -webkit-fill-available;
+}
+body .container {
+  height: 100vh;
+  width: 100vw;
+  height: -webkit-fill-available;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(45deg, #d2001a, #7462ff, #21f46e, #23d5ab);
+  background-size: 300% 300%;
+  animation: color 25s ease-in-out infinite;
+}
+@keyframes color {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+.container .bubble{
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 82% 10px 10px 10px;
+  animation-name: moving;
+  animation-duration: 15s;
+  animation-delay: 0.1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes moving {
+  0%{
+    left: 0%;
+  }
+  50%{
+    left: 75%;
+  }
+  100%{
+    left: 0;
+  }
+}
+.bubble svg{
+  height: 100%;
+  width: 100%;
+  transition-duration: 0.2s;
+  position: absolute;
+}
+.bubble h1{
+  font-size: 40px;
+  position: absolute;
+}
+.container .solider {
+  position: absolute;
+  inset: 60px 200px 100px 60px;
+  background: rgb(221, 221, 221);
+  border-radius: 15px;
+}
+.solider .slides {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 280px;
+  background: var(--img);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  border-radius: 15px;
+  transition: all 0.5s;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.slides .content{
+  position: relative;
+  padding: 30px;
+  max-width: 900px;
+  transition: 0.5s;
+  transition-delay: 0s;
+  transform: translateY(40px);
+  z-index: 10000;
+  opacity: 0;
+}
+.solider .slides:nth-child(1),
+.solider .slides:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(0%);
+  background-size: cover;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+.solider .slides:nth-child(3) {
+  left: calc(60% + 100px);
+  background-size: cover;
+}
+.solider .slides:nth-child(4) {
+  left: calc(60% + 320px);
+  background-size: cover;
+}
+.solider .slides:nth-child(5) {
+  left: calc(60% + 540px);
+  background-size: cover;
+}
+.solider .slides:nth-child(6) {
+  left: calc(60% + 760px);
+  background-size: cover;
+}
+.solider .slides:nth-child(7) {
+  left: calc(60% + 980px);
+  background-size: cover;
+  opacity: 0;
+}
+.button {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  gap: 20px;
+}
+.button span {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+.button span::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-top: 4px solid white;
+  border-left: 4px solid white;
+  transform: rotate(315deg) translate(2px);
+}
+.button span:nth-child(2)::before {
+  transform: rotate(135deg) translate(2px, 2px);
+}
+.button span:active {
+  opacity: 0.5;
+}
+/* & Responsive */
+@media (max-width: 900px) {
+  .container .solider {
+    position: absolute;
+    inset: 20px 20px 195px 20px;
+  }
+  .container .bubble{
+    height: 100px;
+    width: 100px;
+    inset: 86% 10px 10px 10px;
+    animation-duration: 10s;
+  }
+  .bubble h1{
+    font-size: 35px;
+  }
+  .solider .slides {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    top: initial;
+    bottom: -140px;
+  }
+  .slides .content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .content h1{
+    font-size: x-large;
+  }
+  .content p{
+    font-size: medium;
+  }
+  .solider .slides:nth-child(1),
+  .solider .slides:nth-child(2) {
+    top: initial;
+    bottom: 0px;
+  }
+  .solider .slides:nth-child(3) {
+    left: 0;
+  }
+  .solider .slides:nth-child(4) {
+    left: 100px;
+  }
+  .solider .slides:nth-child(5) {
+    left: 200px;
+  }
+  .solider .slides:nth-child(6) {
+    left: 300px;
+  }
+  .solider .slides:nth-child(7) {
+    left: 400px;
+    opacity: 0;
+  }
+}
+.solider .slides:nth-child(1) .content,
+.solider .slides:nth-child(2) .content{
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.6s;
+}

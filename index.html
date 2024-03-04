@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Nunito", sans-serif;
+    }
+    html {
+      height: -webkit-fill-available;
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      height: -webkit-fill-available;
+    }
+    body .Ques {
+      height: 20%;
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+    body .auto-type {
+      background-image: linear-gradient(
+        45deg,
+        #d2001a,
+        #7462ff,
+        #21f46e,
+        #23d5ab
+      );
+      background-size: 300% 300%;
+      animation: color 25s ease-in-out infinite;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+    .Ques button {
+      padding: 5% 15%;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 1.5rem;
+      background-image: linear-gradient(
+        45deg,
+        #d2001a,
+        #7462ff,
+        #21f46e,
+        #23d5ab
+      );
+      background-size: 300% 300%;
+      animation: color 25s ease-in-out infinite;
+    }
+    @keyframes color {
+      0% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0 50%;
+      }
+    }
+    button:active {
+      padding: 4.5% 14.5%;
+    }
+    @media (max-width: 600px) {
+      body {
+        gap: 20px;
+      }
+      body .Ques {
+        height: 15%;
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+    }
+  </style>
+
+  <body>
+    <h1>Are you <span class="auto-type"></span> ?</h1>
+    <div class="Ques">
+      <button type="button" onclick="location.href='message.html'">No</button>
+      <button type="button" onclick="location.href='giftBox.html'">Yes</button>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- ! JavaScrpit -->
+    <script>
+      var typed = new Typed(".auto-type", {
+        strings: [
+          "Ananya⭐",
+          "Nanba⭐",
+          "Star⭐",
+          "Ananya⭐",
+          "Nanba⭐",
+          "Star⭐",
+          "Ananya⭐",
+          "Nanba⭐",
+          "Star⭐",
+          "Ananya⭐",
+          "Nanba⭐",
+          "Star⭐",
+        ],
+        typeSpeed: 150,
+        backSpeed: 150,
+        looped: true,
+      });
+    </script>
+  </body>
+</html>

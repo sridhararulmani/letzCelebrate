@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gift for You...🎁</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Nunito", sans-serif;
+    }
+    html {
+      height: -webkit-fill-available;
+    }
+    body {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      height: -webkit-fill-available;
+    }
+    body .bubble {
+      position: absolute;
+      width: 50px;
+      bottom: 150px;
+      transition-duration: 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+    }
+    .bubble.active {
+      transition-duration: 0.6s;
+      transform: translateY(-90px);
+      width: 400px;
+      visibility: inherit;
+    }
+    .bubble svg {
+      position: relative;
+    }
+    .bubble button {
+      position: absolute;
+      font-size: 1px;
+      transition: 0.5s;
+      border: none;
+      border-radius: 20px;
+      padding: 15px;
+      background-image: linear-gradient(
+        45deg,
+        #d2001a,
+        #7462ff,
+        #21f46e,
+        #23d5ab
+      );
+      background-size: 300% 300%;
+      animation: color 25s ease-in-out infinite, Vaibration 4s ease infinite;
+      color: white;
+    }
+    button.active {
+      font-size: 20px;
+      transition: 3s;
+    }
+    button:active {
+      padding: -10px;
+      font-size: 10px;
+      transition: 0.1s;
+    }
+    body .giftContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      bottom: 20%;
+    }
+    .giftContainer.active {
+      animation: Vaibration 4s ease infinite;
+    }
+    @keyframes Vaibration {
+      0% {
+        transform: scale(1, 1);
+      }
+      25% {
+        transform: scale(0.95, 1.05);
+      }
+      50% {
+        transform: scale(1, 1);
+      }
+      75% {
+        transform: scale(0.95, 1.05);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+    .giftContainer .giftBox {
+      position: absolute;
+      height: 150px;
+      width: 250px;
+      background-image: linear-gradient(
+        45deg,
+        #d2001a,
+        #7462ff,
+        #21f46e,
+        #23d5ab
+      );
+      background-size: 300% 300%;
+      border-radius: 0px 0px 10px 10px;
+      animation: bounce 4s ease infinite, color 25s ease-in-out infinite;
+      box-shadow: 0px 1px 5px 0px black;
+    }
+    @keyframes color {
+      0% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0 50%;
+      }
+    }
+    @keyframes bounce {
+      0% {
+        transform: translateY(-40px);
+      }
+      50% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(-40px);
+      }
+    }
+    .giftBox::before {
+      content: "";
+      position: absolute;
+      height: 150px;
+      width: 50px;
+      background-color: #d2001a;
+      left: 100px;
+      box-shadow: 0px 0px 10px 1px black;
+    }
+    .giftBox .click {
+      position: absolute;
+      height: 50px;
+      width: 255px;
+      background-image: linear-gradient(
+        45deg,
+        #d2001a,
+        #7462ff,
+        #21f46e,
+        #23d5ab
+      );
+      background-size: 300% 300%;
+      animation: color 25s ease-in-out infinite;
+      border-radius: 10px 10px 0px 0px;
+      left: -2.5px;
+      top: -50px;
+      box-shadow: 0px 1px 5px 0px black;
+      transition: 0.5s ease;
+    }
+    .click.active {
+      transform: rotate(-130deg) translateY(-165px);
+      top: -205px;
+      left: -105px;
+    }
+    .giftContainer .shadow.active {
+      animation: none;
+    }
+    .click::before {
+      content: "";
+      position: absolute;
+      height: 50px;
+      width: 51px;
+      background-color: #d2001a;
+      left: 102px;
+      box-shadow: 0px 0px 10px 1px black;
+    }
+    .click::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-bottom: 60px solid #d2001a;
+      border-left: 0px solid transparent;
+      border-top: 60px solid #d2001a;
+      border-right: 60px solid transparent;
+      transform: rotate(-90deg);
+      top: -88px;
+      left: 98px;
+      border-radius: 10px 50px 50px 10px;
+      z-index: 3;
+    }
+    .giftContainer .shadow {
+      content: "";
+      position: absolute;
+      width: 270px;
+      height: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      top: 65px;
+      left: -135px;
+      border-radius: 100%;
+      animation: bounceOut 4s ease infinite;
+    }
+    @keyframes bounceOut {
+      0% {
+        transform: translateY(-10px);
+        scale: 0.7;
+      }
+      50% {
+        transform: translateY(0px);
+        scale: 1;
+      }
+      100% {
+        transform: translateY(-10px);
+        scale: 0.7;
+      }
+    }
+    @media (max-width: 600px) {
+      .giftContainer .giftBox {
+        height: 75px;
+        width: 150px;
+      }
+      .giftBox::before {
+        width: 20px;
+        height: 75px;
+        left: 67px;
+      }
+      .giftContainer .click {
+        height: 30px;
+        width: 156px;
+        margin-top: 19px;
+      }
+      .click::before {
+        width: 20px;
+        height: 30px;
+        left: 70px;
+      }
+      .click::after {
+        left: 59px;
+        top: -60px;
+        border-bottom: 40px solid #d2001a;
+        border-left: 0px solid transparent;
+        border-top: 40px solid #d2001a;
+        border-right: 40px solid transparent;
+      }
+      .click.active {
+        top: -170px;
+        left: -35px;
+        transform: rotate(-130deg) translateY(-140px);
+      }
+      .giftContainer .shadow {
+        width: 200px;
+        height: 10px;
+        margin-left: 35px;
+      }
+      .bubble.active {
+        transform: translateY(-150px);
+      }
+    }
+  </style>
+  
+  <body>
+    <canvas id="confetti"></canvas>
+    <div class="bubble">
+      <svg
+        viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="100%"
+        id="blobSvg"
+      >
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color: rgb(254, 0, 242)"></stop>
+            <stop offset="100%" style="stop-color: rgb(255, 195, 113)"></stop>
+          </linearGradient>
+        </defs>
+        <path fill="url(#gradient)">
+          <animate
+            attributeName="d"
+            dur="10000ms"
+            repeatCount="indefinite"
+            values="M360.5,312.5Q350,375,273.5,428.5Q197,482,152.5,400Q108,318,103,247.5Q98,177,152,118Q206,59,301.5,62Q397,65,384,157.5Q371,250,360.5,312.5Z;
+
+          M402,343Q398,436,310.5,402Q223,368,130.5,360Q38,352,34.5,248.5Q31,145,115,85.5Q199,26,289.5,56.5Q380,87,393,168.5Q406,250,402,343Z;
+          
+          M412.5,339Q392,428,299,435Q206,442,144.5,386Q83,330,71.5,244.5Q60,159,134.5,115Q209,71,282,95Q355,119,394,184.5Q433,250,412.5,339Z;
+          
+          M402,331.5Q380,413,300.5,395.5Q221,378,140.5,359.5Q60,341,87.5,263Q115,185,157.5,109Q200,33,292.5,56.5Q385,80,404.5,165Q424,250,402,331.5Z;
+          
+          M388.5,323.5Q367,397,292,395Q217,393,177,348.5Q137,304,147,254.5Q157,205,181,129Q205,53,286,78Q367,103,388.5,176.5Q410,250,388.5,323.5Z; 
+          
+          M371,306.5Q340,363,270.5,414Q201,465,137.5,400Q74,335,70,248Q66,161,146,152.5Q226,144,299.5,120Q373,96,387.5,173Q402,250,371,306.5Z;
+
+          M360.5,312.5Q350,375,273.5,428.5Q197,482,152.5,400Q108,318,103,247.5Q98,177,152,118Q206,59,301.5,62Q397,65,384,157.5Q371,250,360.5,312.5Z;
+          "
+          ></animate>
+        </path>
+      </svg>
+      <button
+        class="button"
+        type="button"
+        onclick="location.href='wishPage.html'"
+      >
+        🥳<br />let's Celebrate
+      </button>
+    </div>
+    <div class="giftContainer">
+      <div class="shadow"></div>
+      <div class="giftBox">
+        <div class="click"></div>
+      </div>
+    </div>
+    <!-- @ pop -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <script>
+      const click = document.querySelector(".click");
+      const giftBox = document.querySelector(".giftBox");
+      const Shadow = document.querySelector(".shadow");
+      const giftContainer = document.querySelector(".giftContainer");
+      const bubble = document.querySelector(".bubble");
+      const button = document.querySelector(".button");
+
+      const horn = new Audio();
+      horn.src = "media/horn.mp3";
+      const popSound = new Audio();
+      popSound.src = "media/popSound.m4a";
+
+      let canves = document.querySelector("#confetti");
+      const jsConfetti = new JSConfetti();
+
+      function wish() {
+        horn.play();
+        popSound.play();
+        jsConfetti.addConfetti({
+          confettiRadius: 4,
+          confettiNumber: 2000,
+        });
+      }
+
+      giftBox.addEventListener("click", () => {
+        if (click.className === "click") {
+          wish();
+          click.classList.add("active");
+          giftBox.classList.add("active");
+          Shadow.classList.add("active");
+          giftContainer.classList.add("active");
+          bubble.classList.add("active");
+          button.classList.add("active");
+        } else {
+          click.classList.remove("active");
+          giftBox.classList.remove("active");
+          Shadow.classList.remove("active");
+          giftContainer.classList.remove("active");
+          bubble.classList.remove("active");
+          button.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
